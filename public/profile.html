@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>My Profile | DevRadar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/profile.js" defer></script>
+  </head>
+  <body class="app-page">
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="/index.html" class="brand" aria-label="DevRadar home"
+          ><span class="brand-icon" aria-hidden="true"
+            ><svg viewBox="0 0 24 24">
+              <path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3l-4 18" /></svg></span
+          ><span class="brand-word">Dev<span>Radar</span></span></a
+        >
+        <nav class="app-nav" aria-label="Main navigation">
+          <a href="/index.html" class="nav-link"
+            ><span class="nav-icon">⌕</span> Discover</a
+          ><a href="/connections.html" class="nav-link"
+            ><span class="nav-icon">◫</span> Connections</a
+          ><a href="/requests.html" class="nav-link"
+            ><span class="nav-icon">↗</span> Requests</a
+          ><a href="/profile.html" class="nav-link active"
+            ><span class="nav-icon">◎</span> My Profile</a
+          >
+        </nav>
+        <div class="header-actions">
+          <span class="header-status"
+            ><span class="status-dot"></span> Community</span
+          ><button
+            id="logoutButton"
+            class="button button-ghost button-sm"
+            type="button"
+          >
+            Log out <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="page-shell profile-shell">
+      <section class="page-heading">
+        <div>
+          <div class="breadcrumb">
+            <span>Workspace</span><span class="breadcrumb-separator">/</span
+            ><strong>My Profile</strong>
+          </div>
+          <p class="eyebrow">
+            <span class="eyebrow-mark"></span> YOUR DEVELOPER IDENTITY
+          </p>
+          <h1>Make it yours<span class="heading-accent">.</span></h1>
+          <p class="page-description">
+            Tell the community what you care about, what you're learning, and
+            what you want to build.
+          </p>
+        </div>
+        <div class="heading-aside">
+          <div class="mini-stat-icon">◎</div>
+          <div>
+            <span class="micro-label">PROFILE SETTINGS</span>
+            <p>Your details, your story.</p>
+          </div>
+        </div>
+      </section>
+      <p
+        id="profileMessage"
+        class="status-message"
+        role="status"
+        aria-live="polite"
+      >
+        Loading your profile...
+      </p>
+      <section id="profileContainer" class="profile-card panel" hidden>
+        <div class="profile-cover">
+          <span class="cover-grid" aria-hidden="true"></span
+          ><span class="cover-label">DEVRADAR / PROFILE</span>
+        </div>
+        <div class="profile-content">
+          <div class="profile-identity">
+            <img
+              id="profilePhoto"
+              class="profile-avatar"
+              src="/images/default-avatar.png"
+              alt="Your profile photo"
+            />
+            <div class="profile-identity-copy">
+              <p class="eyebrow">COMMUNITY MEMBER</p>
+              <h2 id="profileName" class="profile-name"></h2>
+              <p id="profileEmail" class="profile-email"></p>
+            </div>
+            <div class="profile-identity-actions">
+              <button
+                type="button"
+                id="editProfileButton"
+                class="button button-primary"
+              >
+                <span aria-hidden="true">✎</span> Edit profile</button
+              ><button
+                type="button"
+                id="changePasswordButton"
+                class="button button-outline"
+              >
+                Change password
+              </button>
+            </div>
+          </div>
+          <div class="profile-detail-grid">
+            <div class="profile-detail-tile">
+              <span class="detail-label">AGE</span>
+              <p id="profileAge"></p>
+            </div>
+            <div class="profile-detail-tile">
+              <span class="detail-label">GENDER</span>
+              <p id="profileGender"></p>
+            </div>
+          </div>
+          <div class="profile-section-block">
+            <div class="section-heading-inline">
+              <div>
+                <span class="detail-label">ABOUT</span>
+                <h3>A little about me</h3>
+              </div>
+              <span class="section-index">01</span>
+            </div>
+            <p id="profileAbout" class="profile-about"></p>
+          </div>
+          <div class="profile-section-block">
+            <div class="section-heading-inline">
+              <div>
+                <span class="detail-label">EXPERTISE</span>
+                <h3>Skills & interests</h3>
+              </div>
+              <span class="section-index">02</span>
+            </div>
+            <div id="profileSkills" class="developer-skills"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="editProfileSection" class="form-panel panel" hidden>
+        <div class="form-panel-heading">
+          <div>
+            <p class="eyebrow">PROFILE SETTINGS</p>
+            <h2>Edit your profile</h2>
+            <p>Keep your developer identity up to date.</p>
+          </div>
+          <span class="form-panel-icon">✎</span>
+        </div>
+        <form id="editProfileForm" class="settings-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="editFirstName"
+                >First name <span class="required-mark">*</span></label
+              ><input
+                type="text"
+                id="editFirstName"
+                minlength="2"
+                maxlength="50"
+                placeholder="First name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editLastName">Last name</label
+              ><input
+                type="text"
+                id="editLastName"
+                maxlength="50"
+                placeholder="Last name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="editAge">Age</label
+              ><input
+                type="number"
+                id="editAge"
+                min="18"
+                max="120"
+                step="1"
+                placeholder="18+"
+              />
+            </div>
+            <div class="form-group">
+              <label for="editGender">Gender</label
+              ><select id="editGender">
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <div class="form-group form-grid-wide">
+              <label for="editPhotoUrl">Profile photo URL</label
+              ><input
+                type="url"
+                id="editPhotoUrl"
+                maxlength="2048"
+                placeholder="https://example.com/photo.jpg"
+              /><small>Use a publicly accessible image URL.</small>
+            </div>
+            <div class="form-group form-grid-wide">
+              <label for="editAbout">About me</label
+              ><textarea
+                id="editAbout"
+                rows="4"
+                maxlength="500"
+                placeholder="What are you learning, building, or interested in?"
+              ></textarea>
+              <div class="field-footnote">
+                <small>A short intro helps others get to know you.</small
+                ><small>Max 500 characters</small>
+              </div>
+            </div>
+            <div class="form-group form-grid-wide">
+              <label for="editSkills">Skills & interests</label
+              ><input
+                type="text"
+                id="editSkills"
+                placeholder="JavaScript, C++, Node.js"
+              /><small
+                >Separate skills with commas. Up to 10 skills; 30 characters
+                each.</small
+              >
+            </div>
+          </div>
+          <p
+            id="editProfileMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <div class="form-actions">
+            <button
+              type="button"
+              id="cancelEditButton"
+              class="button button-outline"
+            >
+              Cancel</button
+            ><button
+              type="submit"
+              id="saveProfileButton"
+              class="button button-primary"
+            >
+              Save changes <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section
+        id="changePasswordSection"
+        class="form-panel panel password-panel"
+        hidden
+      >
+        <div class="form-panel-heading">
+          <div>
+            <p class="eyebrow">ACCOUNT SECURITY</p>
+            <h2>Change password</h2>
+            <p>Use a strong password you don't use elsewhere.</p>
+          </div>
+          <span class="form-panel-icon">⌑</span>
+        </div>
+        <form id="changePasswordForm" class="settings-form">
+          <div class="form-grid single-column">
+            <div class="form-group">
+              <label for="currentPassword">Current password</label
+              ><input
+                type="password"
+                id="currentPassword"
+                placeholder="Enter current password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New password</label
+              ><input
+                type="password"
+                id="newPassword"
+                placeholder="At least 8 characters"
+                autocomplete="new-password"
+                required
+              /><small>Use between 8 and 128 characters.</small>
+            </div>
+            <div class="form-group">
+              <label for="reEnterNewPassword">Confirm new password</label
+              ><input
+                type="password"
+                id="reEnterNewPassword"
+                placeholder="Re-enter your new password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+          </div>
+          <p
+            id="changePasswordMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <div class="form-actions">
+            <button
+              type="button"
+              id="cancelPasswordButton"
+              class="button button-outline"
+            >
+              Cancel</button
+            ><button
+              type="submit"
+              id="savePasswordButton"
+              class="button button-primary"
+            >
+              Update password <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+      <footer class="app-footer">
+        <span
+          >DevRadar <span class="footer-separator">/</span> Profile
+          settings</span
+        ><span
+          >Your identity, your story <span class="footer-heart">♥</span></span
+        >
+      </footer>
+    </main>
+  </body>
+</html>

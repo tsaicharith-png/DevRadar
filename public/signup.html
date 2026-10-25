@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Create your account | DevRadar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/signup.js" defer></script>
+  </head>
+  <body class="auth-page signup-page">
+    <header class="signup-header">
+      <a href="/index.html" class="brand"
+        ><span class="brand-icon" aria-hidden="true"
+          ><svg viewBox="0 0 24 24">
+            <path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3l-4 18" /></svg></span
+        ><span class="brand-word">Dev<span>Radar</span></span></a
+      >
+      <div class="signup-header-right">
+        <span>Already a member?</span
+        ><a href="/login.html" class="button button-outline button-sm"
+          >Sign in <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+    <main class="signup-shell">
+      <section class="signup-intro">
+        <p class="eyebrow">
+          <span class="eyebrow-mark"></span> START SOMETHING GOOD
+        </p>
+        <h1>
+          Join the developer<br />community<span class="heading-accent">.</span>
+        </h1>
+        <p>
+          Create your profile, share what you're working on, and find the people
+          you'll build with next.
+        </p>
+        <div class="signup-progress">
+          <span class="progress-step active"><i>01</i> Basics</span
+          ><span class="progress-line"></span
+          ><span class="progress-step active"><i>02</i> Security</span
+          ><span class="progress-line"></span
+          ><span class="progress-step"><i>03</i> Profile</span>
+        </div>
+      </section>
+      <form id="signupForm" class="signup-form panel" novalidate>
+        <section class="signup-section">
+          <div class="section-heading">
+            <div class="section-number">01</div>
+            <div>
+              <h2>Personal details</h2>
+              <p>The essentials to get you started.</p>
+            </div>
+          </div>
+          <div class="signup-grid">
+            <div class="form-group">
+              <label for="firstName"
+                >First name <span class="required-mark">*</span></label
+              ><input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="e.g. Alex"
+                autocomplete="given-name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name</label
+              ><input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="e.g. Morgan"
+                autocomplete="family-name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label
+              ><input
+                type="number"
+                id="age"
+                name="age"
+                placeholder="18 or above"
+                min="18"
+                max="120"
+                step="1"
+              />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label
+              ><select id="gender" name="gender">
+                <option value="">Prefer not to specify</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <div class="form-group form-grid-wide">
+              <label for="emailId"
+                >Email address <span class="required-mark">*</span></label
+              ><input
+                type="email"
+                id="emailId"
+                name="emailId"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              /><small>Use an email address you can access.</small>
+            </div>
+          </div>
+        </section>
+        <div class="signup-section-divider"></div>
+        <section class="signup-section">
+          <div class="section-heading">
+            <div class="section-number">02</div>
+            <div>
+              <h2>Account security</h2>
+              <p>Create a strong password for your account.</p>
+            </div>
+          </div>
+          <div class="signup-grid">
+            <div class="form-group">
+              <label for="password"
+                >Password <span class="required-mark">*</span></label
+              ><input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="At least 8 characters"
+                autocomplete="new-password"
+                required
+              /><small>Use at least 8 characters.</small>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword"
+                >Confirm password <span class="required-mark">*</span></label
+              ><input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Re-enter password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+          </div>
+          <div class="security-note">
+            <span class="security-icon">✓</span
+            ><span>Your password is hashed securely by the server.</span>
+          </div>
+        </section>
+        <div class="signup-section-divider"></div>
+        <section class="signup-section">
+          <div class="section-heading">
+            <div class="section-number">03</div>
+            <div>
+              <h2>Your developer profile</h2>
+              <p>Help others discover what you care about.</p>
+            </div>
+            <span class="optional-label">OPTIONAL</span>
+          </div>
+          <div class="signup-grid">
+            <div class="form-group form-grid-wide">
+              <label for="skills">Skills & interests</label
+              ><input
+                type="text"
+                id="skills"
+                name="skills"
+                placeholder="JavaScript, C++, Node.js"
+              /><small>Separate skills with commas. Add up to 10 skills.</small>
+            </div>
+            <div class="form-group form-grid-wide">
+              <div class="label-between">
+                <label for="about">About you</label
+                ><span class="field-hint">MAX 500 CHARACTERS</span>
+              </div>
+              <textarea
+                id="about"
+                name="about"
+                rows="4"
+                maxlength="500"
+                placeholder="What are you learning, building, or interested in?"
+              ></textarea>
+            </div>
+            <div class="form-group form-grid-wide">
+              <label for="photoUrl">Profile photo URL</label
+              ><input
+                type="url"
+                id="photoUrl"
+                name="photoUrl"
+                placeholder="https://example.com/your-photo.jpg"
+              /><small>You can always add a photo later.</small>
+            </div>
+          </div>
+        </section>
+        <div class="signup-submit-area">
+          <p
+            id="signupMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <button
+            type="submit"
+            id="signupButton"
+            class="button button-primary button-full signup-submit"
+          >
+            Create account <span aria-hidden="true">→</span>
+          </button>
+          <p class="terms-note">
+            By creating an account, you agree to be respectful and help keep
+            DevRadar welcoming.
+          </p>
+        </div>
+      </form>
+      <footer class="signup-footer">
+        <span
+          >DevRadar <span class="footer-separator">/</span> Join the
+          network</span
+        ><span>Built for builders <span class="footer-heart">♥</span></span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Connection Requests | DevRadar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/requests.js" defer></script>
+  </head>
+  <body class="app-page">
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="/index.html" class="brand" aria-label="DevRadar home"
+          ><span class="brand-icon" aria-hidden="true"
+            ><svg viewBox="0 0 24 24">
+              <path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3l-4 18" /></svg></span
+          ><span class="brand-word">Dev<span>Radar</span></span></a
+        >
+        <nav class="app-nav" aria-label="Main navigation">
+          <a href="/index.html" class="nav-link"
+            ><span class="nav-icon">⌕</span> Discover</a
+          ><a href="/connections.html" class="nav-link"
+            ><span class="nav-icon">◫</span> Connections</a
+          ><a href="/requests.html" class="nav-link active"
+            ><span class="nav-icon">↗</span> Requests</a
+          ><a href="/profile.html" class="nav-link"
+            ><span class="nav-icon">◎</span> My Profile</a
+          >
+        </nav>
+        <div class="header-actions">
+          <span class="header-status"
+            ><span class="status-dot"></span> Community</span
+          ><button
+            id="logoutButton"
+            class="button button-ghost button-sm"
+            type="button"
+          >
+            Log out <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="page-shell">
+      <section class="page-heading">
+        <div>
+          <div class="breadcrumb">
+            <span>Workspace</span><span class="breadcrumb-separator">/</span
+            ><strong>Requests</strong>
+          </div>
+          <p class="eyebrow">
+            <span class="eyebrow-mark"></span> INCOMING CONNECTIONS
+          </p>
+          <h1>People want to connect<span class="heading-accent">.</span></h1>
+          <p class="page-description">
+            Review incoming requests and grow your circle with developers who
+            share your interests.
+          </p>
+        </div>
+        <div class="heading-aside">
+          <div class="mini-stat-icon">↗</div>
+          <div>
+            <span class="micro-label">MAKE THE FIRST MOVE</span>
+            <p>Every great network starts somewhere.</p>
+          </div>
+        </div>
+      </section>
+      <section class="summary-panel panel">
+        <div class="summary-icon">⇄</div>
+        <div class="summary-copy">
+          <h2>Incoming requests</h2>
+          <p>Choose who you'd like to welcome into your network.</p>
+        </div>
+        <div class="summary-metric">
+          <span id="requestCount">0</span><small>WAITING FOR YOU</small>
+        </div>
+      </section>
+      <p
+        id="requestsMessage"
+        class="status-message"
+        role="status"
+        aria-live="polite"
+      ></p>
+      <section
+        id="requestsContainer"
+        class="developer-grid"
+        aria-label="Incoming requests"
+      ></section>
+      <footer class="app-footer">
+        <span
+          >DevRadar <span class="footer-separator">/</span> Connection
+          requests</span
+        ><span>Built for builders <span class="footer-heart">♥</span></span>
+      </footer>
+    </main>
+    <template id="requestCardTemplate"
+      ><article class="developer-card request-card">
+        <div class="card-topline">
+          <span class="member-label"
+            ><span class="status-dot status-dot-warm"></span> WANTS TO
+            CONNECT</span
+          ><span class="card-menu-mark" aria-hidden="true">···</span>
+        </div>
+        <div class="developer-card-header">
+          <img class="developer-avatar" src="" alt="Developer photo" />
+          <div class="developer-info">
+            <h3 class="developer-name"></h3>
+            <p class="developer-age"></p>
+          </div>
+        </div>
+        <p class="developer-about"></p>
+        <div class="card-divider"></div>
+        <div class="skills-heading"><span>SKILLS & INTERESTS</span></div>
+        <div class="developer-skills"></div>
+        <div class="developer-actions">
+          <button class="reject-button button button-outline" type="button">
+            Decline</button
+          ><button class="accept-button button button-primary" type="button">
+            <span aria-hidden="true">✓</span> Accept request
+          </button>
+        </div>
+      </article></template
+    >
+  </body>
+</html>
